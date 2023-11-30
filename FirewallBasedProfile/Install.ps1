@@ -31,7 +31,7 @@ New-Item -ItemType Directory -Path $fwFolder -Force
 #Protecting the folder
 $acl = Get-Acl $fwFolder
 $acl.SetAccessRuleProtection($true,$false)
-$acl.Access | % { $acl.RemoveAccessRule($_) }
+$acl.Access | ForEach-Object { $acl.RemoveAccessRule($_) }
 $rule = New-Object System.Security.AccessControl.FileSystemAccessRule("SYSTEM","FullControl","Allow")
 $acl.SetAccessRule($rule)
 $acl.SetOwner((New-Object System.Security.Principal.NTAccount("NT AUTHORITY", "SYSTEM")))
@@ -39,7 +39,7 @@ Set-Acl -Path $fwFolder -AclObject $acl | Out-Null
 
 #Copy basic files to the folder
 foreach($fwFile in $fwFiles){
-    
+    Copy-Item -Path .\$fwFile -Destination $fwFolder -Force
 }
 
 
