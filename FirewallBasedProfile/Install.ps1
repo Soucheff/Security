@@ -50,4 +50,5 @@ $setting = New-ScheduledTaskSettingsSet -AllowStartIfOnBatteries -Hidden
 Register-ScheduledTask -TaskName $fwTaskName -Trigger $trigger -Action $ac -User "System" -RunLevel Highest -Settings $setting -Force
 
 #Start the Task
+Start-Sleep -Seconds 2
 Start-ScheduledTask -TaskName $fwTaskName
