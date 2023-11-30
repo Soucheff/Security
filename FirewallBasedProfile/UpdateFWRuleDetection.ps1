@@ -48,8 +48,8 @@ $fwRulesNew = @(
 
 #-----------------------------------------------------------[Execution]------------------------------------------------------------
 
-if(Test-Path(-not($fwFilePath))){
-    exit 1
+if(-not(Test-Path($fwFilePath))){
+    exit 0
 }
 
 $fwRules = Get-Content $fwFilePath | ConvertFrom-Json
