@@ -26,7 +26,7 @@ $fwTaskName = "Deploy-FW"
 
 #-----------------------------------------------------------[Execution]------------------------------------------------------------
 #Folder Firewall
-New-Item -ItemType Directory -Path $folder -Force
+New-Item -ItemType Directory -Path $fwFolder -Force
 
 #Protecting the folder
 $acl = Get-Acl $fwFolder
@@ -39,7 +39,7 @@ Set-Acl -Path $fwFolder -AclObject $acl | Out-Null
 
 #Copy basic files to the folder
 foreach($fwFile in $fwFiles){
-    Copy-Item .\$fwFile -Destination $fwFolder -Force
+    
 }
 
 
