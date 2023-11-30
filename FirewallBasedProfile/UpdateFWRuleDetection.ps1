@@ -32,13 +32,13 @@ $fwRulesNew = @(
         action = "Allow"
     },
     @{
-        app = "TEAMS";
+        app = "TEAMS2";
         path = "AppData\Local\Microsoft\Teams\Current\Teams2.exe";
         protocol = "TCP";
         action = "Allow"
     },
     @{
-        app = "TEAMS";
+        app = "TEAMS2";
         path = "AppData\Local\Microsoft\Teams\Current\Teams2.exe";
         protocol = "UDP";
         action = "Allow"
