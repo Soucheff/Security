@@ -39,7 +39,7 @@ Set-Acl -Path $fwFolder -AclObject $acl | Out-Null
 
 #Copy basic files to the folder
 foreach($fwFile in $fwFiles){
-    Copy-Item -Path .\$fwFile -Destination $fwFolder -Force
+    Copy-Item .\$fwFile $fwFolder -Force
 }
 
 
