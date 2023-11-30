@@ -49,13 +49,15 @@ $fwRulesNew = @(
 #-----------------------------------------------------------[Execution]------------------------------------------------------------
 
 if(-not(Test-Path($fwFilePath))){
-    exit 0
+    #exit 0
+    Write-Host "File not founded"
 }
 
 $fwRules = Get-Content $fwFilePath | ConvertFrom-Json
 
 if($fwRules.Count -ne $fwRulesNew.Count){
-    exit 1
+    Write-Host "Different count of rules"
+    #exit 1
 }
 
 foreach($fwr in $fwRulesNew){
@@ -66,8 +68,10 @@ foreach($fwr in $fwRulesNew){
             -and $fwRules.protocol -eq $fwr.protocol `
             -and $fwRules.action -eq $fwr.action `
         })){
-            exit 1
+            Write-Host "Rule Different"
+            $fwr
+            #exit 1
     }
 }
 
-exit 0
+#exit 0

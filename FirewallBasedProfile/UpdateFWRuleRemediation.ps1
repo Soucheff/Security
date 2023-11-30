@@ -17,6 +17,8 @@
 
 #----------------------------------------------------------[Declarations]----------------------------------------------------------
 $fwFolder = "c:\Firewall"
+$fwTaskName = "Deploy-FW"
+
 $fwFilePath = Join-Path -Path $fwFolder -ChildPath "fwrule.json"
 $fwRulesNew = @(
    @{
